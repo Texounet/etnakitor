@@ -8,13 +8,19 @@ catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
 
-$req = $bdd->query('SELECT * FROM question');
+$rand = rand(0, 6);
+$sql = 'SELECT * FROM question WHERE id = '.$rand;
+
+$req = $bdd->query($sql);
 // $req->execute(array('uid' => securite_bdd($_POST['nom'])));
 while ($donnees = $req->fetch())
 {
-	echo $donnees['question'];
-	$question = array($donnees['question']);
+	//echo $donnees['question'];\
+	$id = $donnees['id'];
+	$question[$id] = $donnees['question'];
 }
 $req->closeCursor();
 
+$json = json_encode($question);
+echo $json;;
 ?>
