@@ -1,15 +1,20 @@
 <?php
+	
+try {
+	$bdd = new PDO('mysql:host=localhost;dbname=Etnakitor;charset=utf8', 'root', 'root');
+}
 
-echo "test2";	
-$pdo = new PDO('mysql:host=127.0.0.1:8888;dbname=etnakitor', 'root', 'root');
+catch(Exception $e) {
+	die('Erreur : '.$e->getMessage());
+}
 
-$sql = "SELECT `id`, `question` FROM `question`";
+$req = $bdd->query('SELECT * FROM question');
+// $req->execute(array('uid' => securite_bdd($_POST['nom'])));
+while ($donnees = $req->fetch())
+{
+	echo $donnees['question'];
+	$question = array($donnees['question']);
+}
+$req->closeCursor();
 
-// $req = $pdo->query($sql);    
-// while($row = $req->fetch()) {    
-//     echo '<b>'.$row['id'].'</b><br/>';    
-// }
-
-// $req->closeCursor();
-
-// mysql_close(); 
+?>
