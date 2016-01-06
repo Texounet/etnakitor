@@ -1,6 +1,4 @@
 <?php
-	
-//print_r($_GET);
 
 function mt_rand_except($min = 0, $max = null, $except = null)
 {
