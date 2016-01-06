@@ -1,5 +1,7 @@
 <?php
 	
+
+
 try {
 	$bdd = new PDO('mysql:host=localhost;dbname=Etnakitor;charset=utf8', 'root', 'root');
 }
@@ -22,5 +24,5 @@ while ($donnees = $req->fetch())
 $req->closeCursor();
 
 $json = json_encode($question);
-echo $json;;
+//echo $json;;
 ?>
