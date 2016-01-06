@@ -13,17 +13,17 @@
 
 <script type="text/javascript" >
 
-window.onload = function showquestion(str){
-	 jQuery.ajax({
-           type: "GET",
-           dataType:"json",
-           url: "/API/question.php",
-           data: "question",
-           success: function (data) { 
-           	console.log('ajax');
+$.ajax({
+  url: "http://fiddle.jshell.net/favicon.png",
+  beforeSend: function( xhr ) {
+    xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+  }
+})
+  .done(function( data ) {
+    if ( console && console.log ) {
+      console.log( "Sample of data:", data.slice( 0, 100 ) );
     }
-       });
-}
+  });
 </script>
 
 </body>
