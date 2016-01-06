@@ -11,20 +11,31 @@ function mt_rand_except($min = 0, $max = null, $except = null)
 }
 
 try {
+<<<<<<< HEAD
 	$bdd = new PDO('mysql:host=localhost;dbname=etnakitor;charset=utf8', 'root', '');
+=======
+	$bdd = new PDO('mysql:host=localhost;dbname=Etnakitor;charset=utf8', 'root', 'root');
+>>>>>>> 7a77e16561477ea036149b78f59adcbb55ad2ee3
 }
 
 catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
 
+<<<<<<< HEAD
 if(empty($_GET))
 	$_GET[]
+=======
+if(!empty($_GET)){
+>>>>>>> 7a77e16561477ea036149b78f59adcbb55ad2ee3
 $rand = mt_rand_except(1, 6, $_GET['ok']);
 //echo $rand;
 
 $sql = 'SELECT * FROM question WHERE id = '.$rand;
-
+}
+else{
+	$sql = 'SELECT * FROM question';
+}
 $req = $bdd->query($sql);
 $i=0;
 // $req->execute(array('uid' => securite_bdd($_POST['nom'])));
@@ -37,5 +48,5 @@ while ($donnees = $req->fetch())
 }
 $req->closeCursor();
 
-echo $question;
+print_r($question);
 ?>
