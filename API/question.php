@@ -1,6 +1,16 @@
 <?php
 	
+//print_r($_GET);
 
+function mt_rand_except($min = 0, $max = null, $except = null)
+{
+    if (is_null($max))
+        $max = mt_getrandmax();
+ 
+    $list = array_diff(range($min, $max), (array)$except);
+ 
+    return $list ? $list[array_rand($list)] : null;
+}
 
 try {
 	$bdd = new PDO('mysql:host=localhost;dbname=Etnakitor;charset=utf8', 'root', 'root');
@@ -10,7 +20,9 @@ catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
 
-$rand = rand(0, 6);
+
+$rand = mt_rand_except(1, 6, $_GET['ok']);
+//echo $rand;
 $sql = 'SELECT * FROM question WHERE id = '.$rand;
 
 $req = $bdd->query($sql);
@@ -24,5 +36,5 @@ while ($donnees = $req->fetch())
 $req->closeCursor();
 
 $json = json_encode($question);
-//echo $json;;
+echo $json;
 ?>
