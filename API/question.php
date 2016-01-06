@@ -35,6 +35,5 @@ while ($donnees = $req->fetch())
 }
 $req->closeCursor();
 
-$json = json_encode($question);
-echo $json;
+echo $question;
 ?>
