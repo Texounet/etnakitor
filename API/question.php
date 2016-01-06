@@ -11,16 +11,18 @@ function mt_rand_except($min = 0, $max = null, $except = null)
 }
 
 try {
-	$bdd = new PDO('mysql:host=localhost;dbname=Etnakitor;charset=utf8', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=etnakitor;charset=utf8', 'root', '');
 }
 
 catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
 
-
+if(empty($_GET))
+	$_GET[]
 $rand = mt_rand_except(1, 6, $_GET['ok']);
 //echo $rand;
+
 $sql = 'SELECT * FROM question WHERE id = '.$rand;
 
 $req = $bdd->query($sql);
