@@ -6,7 +6,7 @@
 }
 
 body {
-  /*background: #2e7e92;*/
+  background: #EBE6DF;
   text-align: center;
 }
 
@@ -14,7 +14,7 @@ h1 {
   font-family: sans-serif;
 }
 
-#content {
+#content, .reponse {
   display: inline-block;
   font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
   font-size: 12px;
@@ -28,12 +28,14 @@ h1 {
   margin: 10px 5px;
   padding: 0 16px 16px 16px;
   max-width: 468px;
-  background: #EBE6DF;
+  background: #fff;
 }
 
-#question, .reponse {
+#question, .wrapper {
 	margin-top: 15px;
 }
+
+
 
 
 
