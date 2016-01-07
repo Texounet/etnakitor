@@ -31,8 +31,15 @@ window.onload = function showquestion(str){
 		success:function(data){
 			texte = data;
 			var newHTML = [];
-			console.log(texte);
-			$("#ajaxbox, h1").append(texte);
+			// var taille = texte.length;
+			console.log(taille);
+			
+			// jQuery.each(texte, function(k, n){
+			// 	console.log(n);
+			// // $("#ajaxbox, h1" + n).texte("caca "+n);
+
+			// });
+
 				
 		}
 	}

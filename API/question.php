@@ -41,9 +41,10 @@ while ($donnees = $req->fetch())
 	//echo $donnees['question'];\
 	$id = $donnees['id'];
 	$question[$id] = $donnees['question'];
+	echo $donnees['question'];
+	echo " ".$id;
 	$i++;
 }
 $req->closeCursor();
 
-print_r($question);
 ?>
