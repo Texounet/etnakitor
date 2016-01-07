@@ -18,14 +18,11 @@ catch(Exception $e) {
 	die('Erreur : '.$e->getMessage());
 }
 
-if(!empty($_GET)){
+]
 $rand = mt_rand_except(1, 6, $_GET['ok']);
 //echo $rand;
 $sql = 'SELECT * FROM question WHERE id = '.$rand;
-}
-else{
-	$sql = 'SELECT * FROM question';
-}
+
 $req = $bdd->query($sql);
 $i=0;
 // $req->execute(array('uid' => securite_bdd($_POST['nom'])));
@@ -38,5 +35,5 @@ while ($donnees = $req->fetch())
 }
 $req->closeCursor();
 
-echo json_encode($question);
+print_r($question);
 ?>
