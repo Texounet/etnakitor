@@ -8,21 +8,35 @@
 <body>
 
 
+<div>
+<h1 id="ajaxbox">
 
-<div id="ajaxbox"></div>
-
+</h1>
+</div>
 <script type="text/javascript" >
 
 window.onload = function showquestion(str){
-	 jQuery.ajax({
-           type: "GET",
-           dataType:"json",
-           url: "/API/question.php",
-           data: "question",
-           success: function (data) { 
-           	console.log('ajax');
-    }
-       });
+	var texte;
+
+	$.ajax({
+		type: "GET",
+		url: "API/question.php?ok=0",
+		dataType : "html",
+
+
+		error:function(msg, string){
+			alert( "Error !: " + string );
+		},
+
+		success:function(data){
+			texte = data;
+			var newHTML = [];
+			console.log(texte);
+			$("#ajaxbox, h1").append(texte);
+				
+		}
+	}
+		);
 }
 </script>
 
