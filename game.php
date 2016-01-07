@@ -15,6 +15,10 @@
   <div id="content">
   	<div id="question"><h2></h2></div>
   </div>
+
+  <div id="utek">
+  <img src="http://www.clipartlord.com/wp-content/uploads/2014/09/robot29-201x240.png" alt="I'm Utek!">
+</div>
   
   <div class="reponse">
   	<div class="wrapper">

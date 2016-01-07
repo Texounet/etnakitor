@@ -68,3 +68,50 @@ h1 {
 .button:active span {
     -webkit-transform: translate(0, 4px);
     -moz-transform: translate(0, 4px);
+}
+
+
+#utek {
+  text-align: center;
+  animation: hover ease-in-out 3s infinite;
+  -webkit-animation: hover ease-in-out 3s infinite;
+}
+
+#utek:hover {
+  animation: fly 4s ease-out;
+  -webkit-animation: fly 4s ease-out;
+}
+
+@-webkit-keyframes hover {
+    0%   {margin-top: 0em;}
+    50%  {margin-top: 2em;}
+    100% {margin-top: 0em;}
+}
+
+@keyframes hover {
+    0%   {margin-top: 0em;}
+    50%  {margin-top: 2em;}
+    100% {margin-top: 0em;}
+}
+
+@-webkit-keyframes fly
+{
+  0% {transform: rotate(5deg)}
+  10% {transform: rotate(-5deg)}
+  20% {transform: rotate(5deg)}
+  30% {transform: rotate(-5deg)}
+  40% {transform: rotate(5deg)}
+  50% {transform: rotate(-5deg); }
+}
+
+@keyframes fly
+{
+  0% {transform: rotate(5deg)}
+  10% {transform: rotate(-5deg)}
+  20% {transform: rotate(5deg)}
+  30% {transform: rotate(-5deg)}
+  40% {transform: rotate(5deg)}
+  50% {transform: rotate(-5deg)}
+  60% {transform: rotate(5deg)}
+  70% {transform: rotate(-5deg); }
+}

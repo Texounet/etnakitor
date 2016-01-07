@@ -12,6 +12,10 @@
   <div id="title">
     <h1>Etnakitor</h1>
   </div>
+
+<div id="utek">
+  <img src="http://www.clipartlord.com/wp-content/uploads/2014/09/robot29-201x240.png" alt="I'm Utek!">
+</div>
   
   <div id="play">
     <a href="game.php" class="button">
