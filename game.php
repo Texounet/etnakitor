@@ -61,9 +61,10 @@ window.onload = function showquestion(str){
 );}
 
 var texte;
-var test =0;
+var test = 0;
+var yes = 0;
 var custom_url = "API/question.php";
-var url_result = "API/result.php?cheveux='long'&sexe='F'";
+var url_result = "API/result.php";
 
 
 
@@ -80,14 +81,24 @@ $(function () {
           },
 
           success:function(data){
+            console.log(yes);
+
+            if (yes == 0) {
+
+              url_result = url_result + "?";
+            }
+            else {
+              console.log("test");
+              url_result = url_result + "&";
+            }
            
             
 
             var url_question = "API/groupe.php?id="+data['id'];
-            console.log(url_question);
             $.getJSON( url_question, function( json ) {
               var tableau_question = JSON.parse(JSON.stringify(json));
               console.log(tableau_question);
+              console.log(data['id']);
 
               for (var i = 0; i < tableau_question.length; i++) {
                 if(test == 0){
@@ -100,7 +111,6 @@ $(function () {
 
                 custom_url = custom_url + "ok[]=" + tableau_question[i];
               };
-              
             })
 
 
@@ -110,20 +120,92 @@ $(function () {
 
 
 
-
             $.getJSON( url_result, function( json ) {
               var test = JSON.parse(JSON.stringify(json));
+              if (yes >= 3) {
                 if (test.count > 1) {
                   console.log("trop");
                   window.location = "ajouter_personne.php";
                 }
                 else {
                   console.log("un seul");
-                  window.location = "personnage.php?result="+test.result;
+                  // window.location = "personnage.php?result="+test.result;
                 }
+              }
             });
+            yes++;
           }
         });
+      
+    });
+});
+
+$(function () {
+    $('#no').on('click', function () {
+        var Status = $(this).val();
+        $.ajax({
+          type: "GET",
+          dataType: "json",
+          url: custom_url,
+
+          error:function(msg, string){
+            alert( "Error !: " + string );
+          },
+
+          success:function(data){
+
+            if (yes == 0) {
+
+              url_result = url_result + "?";
+            }
+            else {
+              console.log("test");
+              url_result = url_result + "&";
+            }
+
+            var url_question = "API/groupe.php?id="+data['id'];
+            $.getJSON( url_question, function( json ) {
+              var tableau_question = JSON.parse(JSON.stringify(json));
+              console.log(tableau_question);
+              console.log(data['id']);
+
+              for (var i = 0; i < tableau_question.length; i++) {
+                if(test == 0){
+                  custom_url = custom_url + "?";
+                  test++;
+                }
+                else
+                  custom_url = custom_url + "&";
+
+
+                custom_url = custom_url + "ok[]=" + tableau_question[i];
+              };
+            })
+
+
+            
+            var question = data['question'];
+            $("#question, h2").text(question);
+
+
+
+            $.getJSON( url_result, function( json ) {
+              var test = JSON.parse(JSON.stringify(json));
+              if (no >= 3) {
+                if (test.count > 1) {
+                  console.log("trop");
+                  window.location = "ajouter_personne.php";
+                }
+                else {
+                  console.log("un seul");
+                  // window.location = "personnage.php?result="+test.result;
+                }
+              }
+            });
+            yes++;
+          }
+        });
+      
     });
 });
 
