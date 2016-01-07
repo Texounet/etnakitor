@@ -86,7 +86,15 @@ $(function () {
             $("#question, h2").text(question);
 
             $.getJSON( url_result, function( json ) {
-              console.log(JSON.stringify(json));
+              var test = JSON.parse(JSON.stringify(json));
+                if (test.count > 1) {
+                  console.log("trop");
+                  window.location = "http://localhost:8888/etnakitor/ajouter_personne.php";
+                }
+                else {
+                  console.log("un seul");
+                  window.location = "http://localhost:8888/etnakitor/personnage.php";
+                }
             });
           }
         });
