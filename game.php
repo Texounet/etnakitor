@@ -110,7 +110,7 @@ $(function () {
                 }
                 else {
                   console.log("un seul");
-                  window.location = "http://localhost:8888/etnakitor/personnage.php";
+                  window.location = "http://localhost:8888/etnakitor/personnage.php?result="+test.result;
                 }
             });
           }
