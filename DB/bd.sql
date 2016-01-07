@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost:8889
--- Generation Time: Jan 06, 2016 at 10:30 AM
+-- Generation Time: Jan 06, 2016 at 04:49 PM
 -- Server version: 5.5.42
 -- PHP Version: 5.6.10
 
@@ -36,8 +36,8 @@ CREATE TABLE `personnes` (
 --
 
 INSERT INTO `personnes` (`id`, `result`, `sexe`, `cheveux`, `yeux`, `promo`, `service`, `lunette`) VALUES
-(1, 'Robin', 'M', 'brun', 'marron', 'prep etna', 'pédago', 'N'),
-(2, 'Stéphanie GUBERN', 'F', 'blonde', 'marron', 'etna', 'pedago', 'N');
+(1, 'Robin', 'M', 'brun', 'marron', 'prep_etna', 'pedago', 'N'),
+(2, 'Stéphanie GUBERN', 'F', 'blond', 'marron', 'etna', 'pedago', 'N');
 
 -- --------------------------------------------------------
 
