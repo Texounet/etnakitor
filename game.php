@@ -106,11 +106,11 @@ $(function () {
               var test = JSON.parse(JSON.stringify(json));
                 if (test.count > 1) {
                   console.log("trop");
-                  window.location = "http://localhost:8888/etnakitor/ajouter_personne.php";
+                  window.location = "ajouter_personne.php";
                 }
                 else {
                   console.log("un seul");
-                  window.location = "http://localhost:8888/etnakitor/personnage.php?result="+test.result;
+                  window.location = "personnage.php?result="+test.result;
                 }
             });
           }
