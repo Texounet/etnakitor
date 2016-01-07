@@ -59,7 +59,9 @@ window.onload = function showquestion(str){
 var texte;
 var test =0;
 var custom_url = "API/question.php";
-var url_result = "API/result.php?sexe='M'";
+var url_result = "API/result.php?cheveux='long'&sexe='F'&sexe='marron'";
+
+
 
 $(function () {
     $('#yes').on('click', function () {
@@ -101,6 +103,9 @@ $(function () {
             
             var question = data['question'];
             $("#question, h2").text(question);
+
+
+
 
             $.getJSON( url_result, function( json ) {
               var test = JSON.parse(JSON.stringify(json));
