@@ -28,7 +28,7 @@ if(empty($_GET)){
 }
 
 
-$rand = mt_rand_except(1, 6, $_GET['ok']);
+$rand = mt_rand_except(1, 19, $_GET['ok']);
 //echo $rand;
 
 $sql = 'SELECT * FROM question WHERE id = '.$rand;

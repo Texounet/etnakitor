@@ -74,14 +74,31 @@ $(function () {
           },
 
           success:function(data){
-            if(test == 0){
-              custom_url = custom_url + "?";
-              test++;
-            }
-            else
-              custom_url = custom_url + "&";
+           
             
-            custom_url = custom_url + "ok[]="+data["id"];
+
+            var url_question = "API/groupe.php?id="+data['id'];
+            console.log(url_question);
+            $.getJSON( url_question, function( json ) {
+              var tableau_question = JSON.parse(JSON.stringify(json));
+              console.log(tableau_question);
+
+              for (var i = 0; i < tableau_question.length; i++) {
+                if(test == 0){
+                  custom_url = custom_url + "?";
+                  test++;
+                }
+                else
+                  custom_url = custom_url + "&";
+
+
+                custom_url = custom_url + "ok[]=" + tableau_question[i];
+              };
+              
+            })
+
+
+            
             var question = data['question'];
             $("#question, h2").text(question);
 
