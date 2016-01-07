@@ -26,6 +26,6 @@ while ($donnees = $req->fetch())
 	$result[$nb] = $donnees['result'];
 }
 
-echo json_encode($result);
+print_r($result);
 
 ?>

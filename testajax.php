@@ -34,8 +34,7 @@ window.onload = function showquestion(str){
         })
 		}
 	}
-		);
-}
+);}
 
 </script>
 
