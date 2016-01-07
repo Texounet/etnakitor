@@ -63,7 +63,7 @@ window.onload = function showquestion(str){
 var texte;
 var test =0;
 var custom_url = "API/question.php";
-var url_result = "API/result.php?cheveux='long'&sexe='F'&sexe='marron'";
+var url_result = "API/result.php?cheveux='long'&sexe='F'";
 
 
 
