@@ -9,12 +9,12 @@
 </head>
 
 <body>
-  <p style="display: none;" id="api_id">Test</p>
+  <!-- <p style="display: none;" id="api_id">Test</p> --> 
   <div id="title">
   	<h1>Etnakitor</h1>
   </div>
   <div id="content">
-  	<div id="question">La question sera ecrite ici</div>
+  	<div id="question"><h2></h2></div>
   </div>
   
   <div class="reponse">
@@ -51,6 +51,8 @@ window.onload = function showquestion(str){
       $( "#api_id" ).text(function() {
         data["id"];
       })
+      var question = data['question'];
+      $("#question, h2").text(question);
     }
   }
 );}
@@ -80,7 +82,8 @@ $(function () {
               custom_url = custom_url + "&";
             
             custom_url = custom_url + "ok[]="+data["id"];
-            console.log(custom_url);
+            var question = data['question'];
+            $("#question, h2").text(question);
           }
         });
     });
