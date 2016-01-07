@@ -72,9 +72,6 @@ $(function () {
           },
 
           success:function(data){
-            $( "#api_id" ).text(function() {
-              data["id"];
-            })
             if(test == 0){
               custom_url = custom_url + "?";
               test++;
