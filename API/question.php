@@ -19,6 +19,9 @@ catch(Exception $e) {
 }
 
 ]
+if(empty($_GET)){
+	$_GET['ok'] = '';
+}
 $rand = mt_rand_except(1, 6, $_GET['ok']);
 //echo $rand;
 $sql = 'SELECT * FROM question WHERE id = '.$rand;
