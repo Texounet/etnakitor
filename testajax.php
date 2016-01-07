@@ -20,8 +20,8 @@ window.onload = function showquestion(str){
 
 	$.ajax({
 		type: "GET",
+    dataType: "json",
 		url: "API/question.php?ok=0",
-		dataType : "html",
 
 
 		error:function(msg, string){
@@ -29,18 +29,9 @@ window.onload = function showquestion(str){
 		},
 
 		success:function(data){
-			texte = data;
-			var newHTML = [];
-			// var taille = texte.length;
-			console.log(taille);
-			
-			// jQuery.each(texte, function(k, n){
-			// 	console.log(n);
-			// // $("#ajaxbox, h1" + n).texte("caca "+n);
-
-			// });
-
-				
+      $.each(data, function(key, value){
+            console.log(key + ":" + value)
+        })
 		}
 	}
 		);

@@ -12,7 +12,7 @@ function mt_rand_except($min = 0, $max = null, $except = null)
 
 try {
 
-	$bdd = new PDO('mysql:host=localhost;dbname=etnakitor;charset=utf8', 'root', '');
+	$bdd = new PDO('mysql:host=localhost;dbname=etnakitor;charset=utf8', 'root', 'root');
 
 }
 
@@ -39,12 +39,12 @@ $i=0;
 while ($donnees = $req->fetch())
 {
 	//echo $donnees['question'];\
-	$id = $donnees['id'];
-	$question[$id] = $donnees['question'];
-	echo $donnees['question'];
-	echo " ".$id;
+	$question['id'] = $donnees['id'];
+	$question['question'] = $donnees['question'];
 	$i++;
 }
 $req->closeCursor();
 
+echo json_encode($question);
+return json_encode($question);
 ?>
