@@ -17,15 +17,13 @@ if(!empty($_GET)){
 	}
 }
 
-echo $sql;
-
 $req = $bdd->query($sql);
 while ($donnees = $req->fetch())
 {
-	$nb = $donnees['count'];
-	$result[$nb] = $donnees['result'];
+	$result["result"] = $donnees['result'];
+	$result["count"] = $donnees['count'];;
 }
 
-print_r($result);
+echo json_encode($result);
 
 ?>

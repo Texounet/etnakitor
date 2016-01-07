@@ -9,7 +9,6 @@
 </head>
 
 <body>
-  <!-- <p style="display: none;" id="api_id">Test</p> --> 
   <div id="title">
   	<h1>Etnakitor</h1>
   </div>
@@ -20,9 +19,9 @@
   <div class="reponse">
   	<div class="wrapper">
   		<input type="radio" name="choice" id="yes">
-  		<label for="yes">Oui</label>
+  		<label for="yes" id="yes">Oui</label>
   		<input type="radio" name="choice" id="no">
-  		<label for="no">Non</label>
+  		<label for="no" id="no">Non</label>
   		<div class="main">
   			<div class="inner"></div>
  		</div>
@@ -60,6 +59,7 @@ window.onload = function showquestion(str){
 var texte;
 var test =0;
 var custom_url = "API/question.php";
+var url_result = "API/result.php?sexe='M'";
 
 $(function () {
     $('#yes').on('click', function () {
@@ -84,6 +84,10 @@ $(function () {
             custom_url = custom_url + "ok[]="+data["id"];
             var question = data['question'];
             $("#question, h2").text(question);
+
+            $.getJSON( url_result, function( json ) {
+              console.log(JSON.stringify(json));
+            });
           }
         });
     });
